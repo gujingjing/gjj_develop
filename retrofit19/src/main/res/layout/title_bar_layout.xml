@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/titleLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="@dimen/title_bar_height"
+    android:background="@color/title_bar_bac">
+
+    <Button
+        android:id="@+id/title_bar_left_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:background="@color/transparency"
+        android:clickable="true"
+        android:drawablePadding="@dimen/drawblePading"
+        android:maxEms="5"
+        android:padding="5dp"
+        android:singleLine="true"
+        android:textColor="@color/title_bar_bac"
+        android:textSize="@dimen/normal_size" />
+
+    <TextView
+        android:id="@+id/title_bar_title_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center_vertical"
+        android:padding="5dp"
+        android:singleLine="true"
+        android:text=""
+        android:textColor="@color/title_bar_bac"
+        android:textSize="@dimen/x_big_size"
+        >
+        <!--android:textStyle="bold"-->
+    </TextView>
+
+    <Button
+        android:id="@+id/title_bar_right_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@color/transparency"
+        android:clickable="true"
+        android:drawablePadding="@dimen/drawblePading"
+        android:padding="5dp"
+        android:text=""
+        android:textColor="@color/title_bar_bac"
+        android:textSize="@dimen/normal_size" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:background="@mipmap/first_line" />
+
+</RelativeLayout>
