@@ -1,5 +1,6 @@
 package com.example.gjj.retrofit19;
 
+import android.content.Intent;
 import android.view.View;
 
 import com.example.gjj.retrofit19.base.BaseSwipActivity;
@@ -8,6 +9,8 @@ import com.example.gjj.retrofit19.retrofit.RetrofitManeger;
 import com.example.gjj.retrofit19.util.LogUtils;
 import com.example.gjj.retrofit19.util.UiUtils;
 import com.example.gjj.retrofit19.view.LoadingPage;
+
+import java.util.logging.Handler;
 
 import rx.Observable;
 import rx.Subscriber;
@@ -52,7 +55,36 @@ public class TestActivity extends BaseSwipActivity{
     @Override
     public void setGui() {
         setTitleShow(true);//设置是否显示标题栏
-        show();
+//        show();
+//        Observable<LoginToken> observable = RetrofitManeger.retrofitService.getToken("13916539504", "123456");
+//        observable.observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(new Subscriber<LoginToken>() {
+//                    @Override
+//                    public void onCompleted() {
+//                        LogUtils.e("onCompleted===", "onCompleted");
+////                        return LoadingPage.ResultState.RESULT_STATE_SUCCESS;
+//                        mActivity.show(LoadingPage.ResultState.RESULT_STATE_SUCCESS);
+//                    }
+//
+//                    @Override
+//                    public void onError(Throwable e) {
+//                        LogUtils.e("onError===", e.getMessage());
+////                        return LoadingPage.ResultState.RESULT_STATE_SUCCESS;
+//                        mActivity.show(LoadingPage.ResultState.RESULT_STATE_ERROR);
+//                    }
+//
+//                    @Override
+//                    public void onNext(LoginToken loginToken) {
+//                        LogUtils.e("onNext===", loginToken.access_token + "");
+////                        return LoadingPage.ResultState.RESULT_STATE_SUCCESS;
+//                    }
+//                });
+        new android.os.Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mActivity.show(LoadingPage.ResultState.RESULT_STATE_SUCCESS);
+            }
+        }, 5000);
     }
 
     @Override

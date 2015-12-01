@@ -102,25 +102,30 @@ public abstract class LoadingPage extends FrameLayout {
 	public void show() {
 		resetState();
 		if(CURRENT_STATE == STATE_UNLOAD){
-//			//开启子线程请求网络操作
-//			new Thread(){
-//				public void run() {
-//					//请求网络操作,并且告知请求网络的最终状态
-//					final ResultState onLoad = onLoad();
-//					//主线程
-//					UIUtils.runInMainThread(new Runnable() {
-//						@Override
-//						public void run() {
-//							CURRENT_STATE = onLoad.getValue();
-//							//决定显示那个界面
-//							showSafePage();
-//						}
-//					});
-//				}
-//			}.start();
-			ThreadManager.getThreadPoolProxy().execute(new RunnableTask());
+			//主线程
+			UiUtils.runInMainThread(new Runnable() {
+				@Override
+				public void run() {
+					//决定显示那个界面
+					showSafePage();
+				}
+			});
 		}
 		
+	}
+	public void show(final ResultState currentState) {
+		if(CURRENT_STATE == STATE_UNLOAD){
+					//主线程
+					UiUtils.runInMainThread(new Runnable() {
+						@Override
+						public void run() {
+							CURRENT_STATE = currentState.getValue();
+							//决定显示那个界面
+							showSafePage();
+						}
+					});
+		}
+
 	}
 	class RunnableTask implements Runnable{
 		@Override

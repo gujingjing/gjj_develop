@@ -84,6 +84,14 @@ public abstract class BaseSwipActivity extends SwipeBackActivity{
         }
     }
     /**
+     * 显示网络请求后的界面
+     */
+    public void show(LoadingPage.ResultState currentState){
+        if(loadingPage!=null){
+            loadingPage.show(currentState);
+        }
+    }
+    /**
      * Apply KitKat specific translucency.
      */
     public void applyKitKatTranslucency() {
