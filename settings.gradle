@@ -1,1 +1,1 @@
-include ':app', ':retrofit19'
+include ':app', ':retrofit20', ':mvpdemo', ':mvpdemo2'
